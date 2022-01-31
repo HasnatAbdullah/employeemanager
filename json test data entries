@@ -1,0 +1,48 @@
+{
+    "email": "daniel@gmail.com",
+    "imageUrl": "https://www.bootdey.com/app/webroot/img/Content/avatar/avatar1.png",
+    "jobTitle": "JavaScript",
+    "name": "Dan Brown",
+    "phone": "0123456789"
+}
+
+{
+    "email": "Craig@gmail.com",
+    "imageUrl": "https://www.bootdey.com/app/webroot/img/Content/avatar/avatar2.png",
+    "jobTitle": "Java",
+    "name": "Craig Johnson",
+    "phone": "0123456788"
+}
+
+{
+    "email": "hasnat@gmail.com",
+    "imageUrl": "https://www.bootdey.com/app/webroot/img/Content/avatar/avatar5.png",
+    "jobTitle": "R&D",
+    "name": "Hasnat Abdullah",
+    "phone": "0123456787"
+}
+
+{
+    "email": "christine@gmail.com",
+    "imageUrl": "https://www.bootdey.com/app/webroot/img/Content/avatar/avatar3.png",
+    "jobTitle": "UI/UX",
+    "name": "Christine Jones",
+    "phone": "0123456786"
+}
+
+{
+    "email": "julie@gmail.com",
+    "imageUrl": "https://www.bootdey.com/app/webroot/img/Content/avatar/avatar8.png",
+    "jobTitle": "Admin",
+    "name": "Julie Jay",
+    "phone": "0123456785"
+}
+
+{
+    "email": "dave@gmail.com",
+    "imageUrl": "https://www.bootdey.com/app/webroot/img/Content/avatar/avatar4.png",
+    "jobTitle": "SQL",
+    "name": "Davie au",
+    "phone": "0123456784"
+}
+
