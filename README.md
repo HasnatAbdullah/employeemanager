@@ -21,3 +21,8 @@ Run the project and populate the db with the [json data](https://github.com/Hasn
 ## Front End
 
 Go here for the gui of this here project [EmployeemanagerFrontend](https://github.com/HasnatAbdullah/employeemanager-frontend)
+
+
+## Last resort
+
+Go and see this [tutorial](https://www.youtube.com/watch?v=Gx4iBLKLVHk)
