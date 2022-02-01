@@ -2,14 +2,15 @@ package com.example.employeemanager.controller;
 
 import com.example.employeemanager.model.Employee;
 import com.example.employeemanager.service.EmployeeService;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 @RestController
 @RequestMapping("/employee")
 public class EmployeeResource {
@@ -45,7 +46,7 @@ public class EmployeeResource {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id){
+    public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
         employeeService.deleteEmployee(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
