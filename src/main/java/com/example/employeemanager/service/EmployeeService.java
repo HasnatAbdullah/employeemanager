@@ -18,22 +18,57 @@ public class EmployeeService {
         this.employeeRepo = employeeRepo;
     }
 
-    public Employee addEmployee(Employee employee){
-        employee.setEmployeeCode(UUID.randomUUID().toString());
-        return employeeRepo.save(employee);
+    public Employee addEmployee(Employee employee) {
+
+        boolean validateEmail = isValidEmail(employee.getEmail());
+        boolean validatePhone = isValidNumber(employee.getPhone());
+        boolean validateUser = isUserExits(employee);
+
+
+
+        if (validateEmail && validatePhone && validateUser){
+            employee.setEmployeeCode(UUID.randomUUID().toString());
+            return employeeRepo.save(employee);
+        }
+        else {
+            return null;
+        }
     }
 
-    public List<Employee> findAllEmployees(){
+//    public boolean validateEmail(String email){
+//        boolean f= false;
+//        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+//        email.matches(regex);
+//        if ()
+//
+//    }
+    private boolean isValidEmail(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
+    }
+    private boolean isValidNumber(String phone) {
+        String regex = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
+        return phone.matches(regex);
+    }
+    private boolean isUserExits(Employee employee){
+        Employee employee1 = employeeRepo.findEmployeeByEmail(employee.getEmail());
+        if (employee1 == null){
+            return true;
+        }
+        return false;
+    }
+
+    public List<Employee> findAllEmployees() {
         return employeeRepo.findAll();
     }
 
-    public Employee updateEmployee(Employee employee){
+    public Employee updateEmployee(Employee employee) {
         return employeeRepo.save(employee);
     }
 
-    public Employee findEmployeeById(Long id){
+    public Employee findEmployeeById(Long id) {
         return employeeRepo.findEmployeeById(id)
-                .orElseThrow(()-> new UserNotFoundException("User By id " + id + " Not Found"));
+                .orElseThrow(() -> new UserNotFoundException("User By id " + id + " Not Found"));
     }
 
     public void deleteEmployee(Long id) {
