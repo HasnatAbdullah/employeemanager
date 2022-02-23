@@ -13,11 +13,11 @@ import java.util.List;
 @Transactional
 @RestController
 @RequestMapping("/employee")
-public class EmployeeResource {
+public class EmployeeController {
     private final EmployeeService employeeService;
 
     @Autowired
-    public EmployeeResource(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
@@ -36,6 +36,9 @@ public class EmployeeResource {
     @PostMapping("/add")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
         Employee newEmployee = employeeService.addEmployee(employee);
+        if (newEmployee == null){
+            return new ResponseEntity<>(newEmployee, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
     }
 
