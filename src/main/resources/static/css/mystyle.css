@@ -1,0 +1,25 @@
+body{
+    background: activecaption;
+}
+.primary-background{
+    background: #0c5460! important;
+}
+.banner-background{
+    clip-path: polygon(51% 0, 79% 0, 100% 0, 100% 93%, 76% 100%, 49% 93%, 24% 100%, 0 94%, 0 0, 26% 0);
+}
+nav ul li a{
+    margin-right: 6px;
+}
+
+nav ul li a:hover{
+    background:#275460;
+    color: red;
+}
+
+td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
+
+.selected {
+    background-color: brown;
+    color: #FFF;
+}
+

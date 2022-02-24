@@ -6,16 +6,27 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.thymeleaf.templatemode.TemplateMode;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import java.util.Arrays;
 
 @SpringBootApplication
 public class EmployeemanagerApplication {
+    @Bean
+    public ClassLoaderTemplateResolver secondaryTemplateResolver() {
+        ClassLoaderTemplateResolver secondaryTemplateResolver = new ClassLoaderTemplateResolver();
+        secondaryTemplateResolver.setPrefix("templates-2/");
+        secondaryTemplateResolver.setSuffix(".html");
+        secondaryTemplateResolver.setTemplateMode(TemplateMode.HTML);
+        secondaryTemplateResolver.setCharacterEncoding("UTF-8");
+        secondaryTemplateResolver.setOrder(1);
+        secondaryTemplateResolver.setCheckExistence(true);
 
-    public static void main(String[] args) {
-        SpringApplication.run(EmployeemanagerApplication.class, args);
+        return secondaryTemplateResolver;
     }
-// The cors filter code is basically boiler plate code and copy-pasteable :p
+
+    // The cors filter code is basically boiler plate code and copy-pasteable :p
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -31,4 +42,9 @@ public class EmployeemanagerApplication {
         urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
         return new CorsFilter(urlBasedCorsConfigurationSource);
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(EmployeemanagerApplication.class, args);
+    }
+
 }
