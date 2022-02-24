@@ -6,6 +6,7 @@ import com.example.employeemanager.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -58,17 +59,26 @@ public class EmployeeService {
         return false;
     }
 
-    public List<Employee> findAllEmployees() {
-        return employeeRepo.findAll();
+    public ArrayList<Employee> findAllEmployees() {
+        ArrayList<Employee> allEmployee = employeeRepo.findAllEmployee();
+        return allEmployee;
     }
 
     public Employee updateEmployee(Employee employee) {
-        return employeeRepo.save(employee);
+         employeeRepo.updateEmployee(
+                employee.getId(),
+                employee.getName(),
+                employee.getEmail(),
+                employee.getJobTitle(),
+                employee.getPhone(),
+                employee.getImageUrl(),
+                employee.getEmployeeCode());
+         return null;
     }
 
     public Employee findEmployeeById(Long id) {
         return employeeRepo.findEmployeeById(id)
-                .orElseThrow(() -> new UserNotFoundException("User By id " + id + " Not Found"));
+                .orElseThrow(() -> new UserNotFoundException("Employee By id " + id + " Not Found"));
     }
 
     public void deleteEmployee(Long id) {
