@@ -21,11 +21,11 @@ Run the project and populate the db with the [json data](https://github.com/Hasn
 ### !!!
 Just have mysql running in the background 
 ## Front End
-Add Thymeleaf so that we dont need a separate angular project running.\
+Add Thymeleaf so that we dont need a separate angular project running.
 
 Goto (http://localhost:8080/allTable) || (http://localhost:8080/employee) for frontend view in table or card format
 #### Deprecated
-Go here for the gui of this here project [EmployeemanagerFrontend](https://github.com/HasnatAbdullah/employeemanager-frontend)\
+Go here for the gui of this here project [EmployeemanagerFrontend](https://github.com/HasnatAbdullah/employeemanager-frontend)
 
 ## Last resort
 
